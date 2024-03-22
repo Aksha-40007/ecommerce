@@ -14,7 +14,7 @@ const orderRoutes= require("./src/routes/orderRoutes");
 const feedbackRoutes= require("./src/routes/feedbackRoute");
 const verifyUser = require("./src/middleware/authMiddleware");
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());  
 app.get("/health", (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
