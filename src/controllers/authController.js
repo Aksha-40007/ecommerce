@@ -33,7 +33,7 @@ const login = async (req, res) => {
     }
 
     if (!user) {
-      throw new Error('User not registered. Please register before login!!');
+      return res.status(404).json('User not registered. Please register before login!!');
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
