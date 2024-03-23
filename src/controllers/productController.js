@@ -10,16 +10,8 @@ const handleError = (res, statusCode, message) => {
 // Create Product
 exports.createProduct = async (req, res) => {
     try {
-        const { name, price, quantity,summary, description, color,company,headphonetype } = req.body;
-        // const {name}=req.body;
+        const { name, price, quantity,summary, description, color,company,headphonetype,rating } = req.body;
         const productPictures = req.files.map(file => ({ img: file.filename }));
-
-        // const productName = name;
-        // const descriptionSummary = description.substring(0, 50); 
-        // const productSize = 'Product size';
-        // const productFeatures = 'Product features';
-
-        // const productSummary = `${productName}: ${descriptionSummary} ${productSize} ${productFeatures} - ${color}`;
 
         const product = new Product({
             name,
@@ -33,7 +25,6 @@ exports.createProduct = async (req, res) => {
             color,
             company,
             headphonetype,
-            createdBy: req.user
         });
 
         await product.save();

@@ -9,17 +9,16 @@ const productSchema = new mongoose.Schema({
   offers: {type: Number},
   summary: { type: String, required: true },
   availability: { type: Boolean, required: true },
-  reviews: [
-    {
-        userId: {type:mongoose.Schema.Types.ObjectId,ref: 'User'},
-        review : String 
-    }
-],
+  rating: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 5
+},
   price: { type: Number, required: true },
   company: { type: String , required: true},
   color: { type: String, required: true },
   headphonetype: { type: String , required: true},
-  createdBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User',required: true},
 });
 
 productSchema.pre('save', function(next) {

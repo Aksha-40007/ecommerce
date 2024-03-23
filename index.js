@@ -27,7 +27,7 @@ app.get("/health",(req,res)=>{
 app.use('/public',express.static(path.join(__dirname,'uploads')));
 
 app.use('/api/auth',authRoutes);
-app.use('/api/product',verifyUser,productRoutes);
+app.use('/api/product',productRoutes);
 app.use('/api/cart',verifyUser,cartRoutes);
 app.use('/api/order',verifyUser,orderRoutes);
 app.use('/api/feedback',verifyUser,feedbackRoutes);
