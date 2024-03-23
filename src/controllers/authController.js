@@ -33,7 +33,7 @@ const login = async (req, res) => {
     }
 
     if (!user) {
-      throw new Error('Invalid credentials');
+      throw new Error('User not registered. Please register before login!!');
     }
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
