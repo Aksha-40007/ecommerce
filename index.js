@@ -14,7 +14,7 @@ const orderRoutes= require("./src/routes/orderRoutes");
 const feedbackRoutes= require("./src/routes/feedbackRoute");
 const verifyUser = require("./src/middleware/authMiddleware");
 
-app.use(cors());
+// app.use(cors());
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*'); // Allow requests from any origin
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -29,7 +29,8 @@ app.get("/health",(req,res)=>{
 });
 
 
-app.use('/public',express.static(path.join(__dirname,'uploads')));
+app.use('/public',express.static(path.join(__dirname,'src','uploads')));
+console.log(path.join(__dirname,'src','uploads'));
 
 app.use('/api/auth',authRoutes);
 app.use('/api/product',productRoutes);
