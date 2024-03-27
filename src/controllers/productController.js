@@ -106,6 +106,11 @@ exports.getProductByFilter = async (req, res) => {
             }
         }
 
+        if (sortCriteria.name) {
+            sortCriteria.name = sortCriteria.name === 1 ? 1 : -1; // Preserve ascending or descending order
+            sortCriteria['name'] = { $toLower: "$name" };
+        }
+
         const products = await Product.find(filter).sort(sortCriteria);
         return res.status(200).json({ products });
     } catch (error) {
