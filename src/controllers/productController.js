@@ -100,15 +100,10 @@ exports.getProductByFilter = async (req, res) => {
             } else if (sortby === 'HighToLow') {
                 sortCriteria.price = -1;
             } else if (sortby === 'AZ') {
-                sortCriteria.name = 1;
+                sortCriteria.company = 1;
             } else if (sortby === 'ZA') {
-                sortCriteria.name = -1;
+                sortCriteria.company = -1;
             }
-        }
-
-        if (sortCriteria.name) {
-            sortCriteria.name = sortCriteria.name === 1 ? 1 : -1; // Preserve ascending or descending order
-            sortCriteria['name'] = { $toLower: "$name" };
         }
 
         const products = await Product.find(filter).sort(sortCriteria);
