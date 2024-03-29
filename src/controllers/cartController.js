@@ -19,7 +19,7 @@ exports.addToCart = async (req, res) => {
           color: productDetails.color,
           availability: productDetails.availability,
           price: productDetails.price,
-          productPictures: productDetails.productPictures[0],
+          productPictures: productDetails.productPictures,
           company: productDetails.company });
       }
 
