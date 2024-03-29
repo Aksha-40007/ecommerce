@@ -21,7 +21,10 @@ app.use((req, res, next) => {
     next();
   });
 
-  
+  app.options('*', (req, res) => {
+    res.status(200).end();
+  });
+
 app.use(express.json());  
 app.get("/health",(req,res)=>{
     res.json({
