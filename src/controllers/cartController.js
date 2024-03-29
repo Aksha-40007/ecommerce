@@ -50,6 +50,28 @@ exports.addToCart = async (req, res) => {
   }
 };
 
+exports.updateCart = async (req, res) => {
+  try {
+    const { productId, quantity } = req.body;
+    const cart = await Cart.findOne({ userId: req.user });
+
+    if (!cart) {
+      return res.status(404).json({ message: "Cart not found" });
+    }
+
+    const existingProduct = cart.products.find(p => p.productId.toString() === productId);
+    if (existingProduct) {
+      existingProduct.quantity = quantity;
+      await cart.save();
+      return res.status(200).json(cart);
+    } else {
+      return res.status(404).json({ message: "Product not found in cart" });
+    }
+  } catch (error) {
+    errorHandler(res, 500, error.message);
+  }
+};
+
 // Function to retrieve the user's cart
 exports.getCart = async (req, res) => {
   try {
