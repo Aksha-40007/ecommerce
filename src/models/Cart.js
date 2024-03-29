@@ -9,7 +9,8 @@ const cartSchema = new mongoose.Schema({
     color: String,
     availability: Boolean,
     price: Number,
-    company:String
+    company:String,
+    productPictures: [{ img: { type: String } }],
   }],
   priceDetails: {
     totalMRP: { type: Number, default: 0 },

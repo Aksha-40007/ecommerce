@@ -35,6 +35,7 @@ exports.addToCart = async (req, res) => {
         color: productDetails.color,
         availability: productDetails.availability,
         price: productDetails.price,
+        productPictures: productDetails.productPictures,
         company: productDetails.company }] });
       if(quantity>0){
         await cart.save();
