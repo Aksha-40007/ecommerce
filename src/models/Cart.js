@@ -36,8 +36,8 @@ cartSchema.pre('save', async function(next) {
       this.priceDetails.totalMRP = this.products.reduce((total, product) => total + (product.price * product.quantity), 0);
       
       // Calculate discount
-      const discountPercentage = Math.round(Math.random() * 51); // Random discount between 0 and 50%
-      this.priceDetails.discount=discountPercentage;
+      // const discountPercentage = Math.round(Math.random() * 51); // Random discount between 0 and 50%
+      this.priceDetails.discount=0;
 
       const discountcalculation = parseInt((this.priceDetails.totalMRP * discountPercentage / 100)); // Limit to 2 decimal places
 
