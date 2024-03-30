@@ -20,6 +20,7 @@ exports.placeOrder = async (req, res) => {
     // Extract relevant details from cart products
     const orderProducts = cart.products.map(product => ({
       productId: product.productId,
+      productPictures: product.productPictures,
       color: product.color,
       name: product.name,
       company: product.company
