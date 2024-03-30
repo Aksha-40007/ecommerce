@@ -15,18 +15,23 @@ const feedbackRoutes = require("./src/routes/feedbackRoute");
 const verifyUser = require("./src/middleware/authMiddleware");
 
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Credentials', true);
-       res.setHeader('Access-Control-Allow-Origin', '*');
-       res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', ' Accept, Accept-Version, Content-Length, Content-Type, Date, Authorization');
-    if(req.method === 'OPTIONS') {
-        return res.status(200).json(({
-            body: "OK"
-        }));
-    }
-    next();
-  });
-
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, OPTIONS, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    " Accept, Accept-Version, Content-Length, Content-Type, Date, Authorization"
+  );
+  if (req.method === "OPTIONS") {
+    return res.status(200).json({
+      body: "OK",
+    });
+  }
+  next();
+});
 
 app.use(express.json());
 app.get("/health", (req, res) => {
