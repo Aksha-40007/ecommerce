@@ -23,7 +23,7 @@ exports.placeOrder = async (req, res) => {
       productPictures: product.productPictures,
       color: product.color,
       name: product.name,
-      company: product.company
+      price: product.price,
     }));
 
     // Create a new order instance
