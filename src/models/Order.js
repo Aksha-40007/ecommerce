@@ -9,6 +9,7 @@ const orderSchema = new mongoose.Schema({
       company: String,
       price: Number, 
       convenienceFee: Number, 
+      productPictures: [{ img: { type: String } }]
   }],
   ordertotal: { type: Number, required: true }, // Total amount for the order
   status: { type: String, enum: ['ordered', 'pending'], default: 'pending' }, 
