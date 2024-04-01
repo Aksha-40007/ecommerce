@@ -42,7 +42,6 @@ app.get("/health", (req, res) => {
 });
 
 app.use("/public", express.static(path.join(__dirname, "src", "uploads")));
-console.log(path.join(__dirname, "src", "uploads"));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/product", productRoutes);
