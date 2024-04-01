@@ -16,7 +16,6 @@ exports.placeOrder = async (req, res) => {
       return res.status(404).json({ message: "Cart not found" });
     }
 
-    console.log(cart.products.map((product)=>{console.log("product",product.productId)}));
     // Extract relevant details from cart products
     const orderProducts = cart.products.map(product => ({
       productId: product.productId,
