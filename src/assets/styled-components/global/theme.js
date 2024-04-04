@@ -1,0 +1,22 @@
+export const colors={
+    headerfooterbgcolor:"#2E0052",
+    inputfieldborder:"#B6B6B6",
+    whitetextcolor:"#FFFFFF",
+    horizontalLine:"#BDBDBD",
+    cartbuttonbgcolor:" #1D7000",
+    red:"red",
+    green:"green",
+    grey:"#DDDDDD",
+    filterbgcolor:"#D9D9D9",
+    sortbyborder: "#E1E1E1",
+    blue:"#0066FF",
+    imagecontainercolor:"#0066FF2B",
+    starcolor:"#FFD700",
+    addtocart:"#FFD600",
+    buynow:"#FFB800",
+    placeordertext:"#969696",
+    carttextcolor:"#A2A2A2",
+    ordertextcolor:"#B52B00",
+    cartordergreycolor:"#797979",
+    mobileviewbgcolor:"#DBDBDB"
+}
